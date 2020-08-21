@@ -14,10 +14,10 @@ class Item(db.Model):
             self.quantidade
 
     def json(self):
-        return json.dumps({
+        return {
             "id": self.id,
             "nome": self.nome,
             "preco": self.preco,
             "exterior": self.exterior,
             "quantidade": self.quantidade
-        })
+        }

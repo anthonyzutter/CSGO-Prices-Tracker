@@ -9,8 +9,10 @@ def inicio():
 @app.route("/listar_itens")
 def listar_itens():
     itens = db.session.query(Item).all()
-    itens_em_json = [ x.json() for x in itens ]
-    resposta = jsonify(itens_em_json)
+    retorno = []
+    for i in itens:
+        retorno.append(i.json())
+    resposta = jsonify(retorno)
     resposta.headers.add("Access-Control-Allow-Origin", "*")
     return resposta
 
