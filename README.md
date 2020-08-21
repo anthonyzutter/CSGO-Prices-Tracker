@@ -1,1 +1,1 @@
-# Csgo-Itens-Tracker
+# CS:GO Prices Tracker
