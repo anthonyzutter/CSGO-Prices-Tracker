@@ -1,4 +1,4 @@
-from config import *
+"""from config import *
 
 class Item(db.Model):
 
@@ -20,4 +20,4 @@ class Item(db.Model):
             "preco": self.preco,
             "exterior": self.exterior,
             "quantidade": self.quantidade
-        }
+        }"""
