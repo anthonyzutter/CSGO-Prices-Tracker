@@ -12,7 +12,7 @@ function listar_itens() {
     });
 
     function listar(itens) {
-        $('#corpoTabelaEsportes').empty();
+        $('#corpoTabelaItens').empty();
         console.log(itens);
         for (var i in itens) {
             lin = '<tr>' +
