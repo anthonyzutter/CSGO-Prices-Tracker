@@ -8,7 +8,7 @@ Preços retirados do mercado da steam: https://steamcommunity.com/market/search?
 1. Implementar o cadastro de itens
 2. Formatar a data com javascript
 3. Descobrir uma forma mais eficiente de pegar o preço dos itens
-4. Calcular a difenrença do preço compra e preço atual
+4. Calcular a diferença do _preço compra_ e _preço atual_
 
 # Imagens
 
