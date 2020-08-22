@@ -18,9 +18,9 @@ function listar_itens() {
             lin = '<tr>' +
                 //'<td>' + itens[i].id + '</td>' +
                 '<td>' + itens[i].nome + '</td>' +
-                '<td>' + itens[i].preco + '</td>' +
-                '<td>' + itens[i].exterior + '</td>' +
-                '<td>' + itens[i].quantidade + '</td>' +
+                '<td>R$ ' + itens[i].preco + '</td>' +
+                '<td>R$ ' + itens[i].preco_atual + '</td>' +
+                '<td>' + itens[i].data + '</td>' +
                 '</tr>';
             $('#corpoTabelaItens').append(lin);
         }   
