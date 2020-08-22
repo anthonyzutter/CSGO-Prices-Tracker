@@ -17,7 +17,7 @@ function listar_itens() {
         for (var i in itens) {
             lin = '<tr>' +
                 //'<td>' + itens[i].id + '</td>' +
-                '<td>' + itens[i].nome + '</td>' +
+                '<td><a href="' + itens[i].url + '">' + itens[i].nome + '</a></td>' +
                 '<td>R$ ' + itens[i].preco + '</td>' +
                 '<td>R$ ' + itens[i].preco_atual + '</td>' +
                 '<td>' + itens[i].data + '</td>' +
