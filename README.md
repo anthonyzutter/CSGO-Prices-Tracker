@@ -5,10 +5,9 @@ Preços retirados do mercado da steam: https://steamcommunity.com/market/search?
 
 # Coisas para fazer
 
-1. Implementar o cadastro de itens
+1. Implementar a remoção de itens
 2. Formatar a data com javascript
-3. Descobrir uma forma mais eficiente de pegar o preço dos itens
-4. Calcular a diferença do _preço compra_ e _preço atual_
+3. Calcular a diferença do _preço compra_ e _preço atual_
 
 # Imagens
 
@@ -18,4 +17,5 @@ Preços retirados do mercado da steam: https://steamcommunity.com/market/search?
 # Imagens da execução
 
 ![Imagem da criação do bd](imagens/back.png)
-![Imagem do codigo rodando](imagens/rodando.png)
+![Imagem do formulario incluindo o item](imagens/incluindo.png)
+![Imagem do item incluido](imagens/incluido.png)
