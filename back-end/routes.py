@@ -1,5 +1,6 @@
 from config import *
 from models import Item
+from servidor import market, game
 
 @app.route("/")
 def inicio():
@@ -25,6 +26,7 @@ def incluir_item():
         db.session.add(nova)
         db.session.commit()
         nova.url += nova.nome
+        nova.preco_atual = market.get_lowest_price(nova.nome, game) 
         db.session.commit()
     except Exception as e: 
         resposta = jsonify({"resultado":"erro", "detalhes":str(e)})
