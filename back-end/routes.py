@@ -32,3 +32,14 @@ def incluir_item():
         resposta = jsonify({"resultado":"erro", "detalhes":str(e)})
     resposta.headers.add("Access-Control-Allow-Origin", "*")
     return resposta
+
+@app.route("/excluir_item/<int:item_id>", methods=['DELETE'])
+def excluir_item(item_id):
+    resposta = jsonify({"resultado": "ok", "detalhes": "ok"})
+    try:
+        Item.query.filter(Item.id == item_id).delete()
+        db.session.commit()
+    except Exception as e:
+        resposta = jsonify({"resultado":"erro", "detalhes":str(e)})
+    resposta.headers.add("Access-Control-Allow-Origin", "*")
+    return resposta

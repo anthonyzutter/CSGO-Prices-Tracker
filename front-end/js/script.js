@@ -15,11 +15,15 @@ $(function() {
             $('#corpoTabelaItens').empty();
             mostrar_conteudo("tabelaItens");      
             for (var i in itens) { 
-                lin = '<tr>' + 
+                lin = '<tr id="linha_'+itens[i].id+'">' +
                 '<td><a href="' + itens[i].url + '">' + itens[i].nome + '</a></td>' +
                 '<td>R$ ' + itens[i].preco + '</td>' +
                 '<td>R$ ' + itens[i].preco_atual + '</td>' +
                 '<td>' + itens[i].data + '</td>' +
+                '<td><a href=# id="excluir_' + itens[i].id + '" ' + 
+                  'class="excluir_item"><img src="img/excluir.png" '+
+                  'alt="Excluir item" title="Excluir item" width=40px></a>' + 
+                '</td>' +
                 '</tr>';
                 $('#corpoTabelaItens').append(lin);
             }
@@ -74,4 +78,29 @@ $(function() {
     });
 
     mostrar_conteudo("conteudoInicial");
+
+    $(document).on("click", ".excluir_item", function() {
+        var componente_clicado = $(this).attr('id'); 
+        var nome_icone = "excluir_";
+        var id_item = componente_clicado.substring(nome_icone.length);
+        $.ajax({
+            url: 'http://localhost:5000/excluir_item/'+id_item,
+            type: 'DELETE',
+            dataType: 'json',
+            success: itemExcluido,
+            error: erroAoExcluir
+        });
+        function itemExcluido (retorno) {
+            if (retorno.resultado == "ok") {
+                $("#linha_" + id_item).fadeOut(1000, function(){
+                    alert("Item removido com sucesso!");
+                });
+            } else {
+                alert(retorno.resultado + ":" + retorno.detalhes);
+            }            
+        }
+        function erroAoExcluir (retorno) {
+            alert("erro ao excluir dados, verifique o backend: ");
+        }
+    });
 });
