@@ -5,9 +5,8 @@ Preços retirados do mercado da steam: https://steamcommunity.com/market/search?
 
 # Coisas para fazer
 
-1. Implementar a remoção de itens
-2. Formatar a data com javascript
-3. Calcular a diferença do _preço compra_ e _preço atual_
+1. Formatar a data com javascript
+2. Calcular a diferença do _preço compra_ e _preço atual_
 
 # Imagens
 
@@ -19,3 +18,4 @@ Preços retirados do mercado da steam: https://steamcommunity.com/market/search?
 ![Imagem da criação do bd](imagens/back.png)
 ![Imagem do formulario incluindo o item](imagens/incluindo.png)
 ![Imagem do item incluido](imagens/incluido.png)
+![Imagem do item sendo removido](imagens/excluindo.png)
