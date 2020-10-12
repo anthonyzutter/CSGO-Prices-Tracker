@@ -9,6 +9,8 @@ import os
 app = Flask(__name__)
 CORS(app)
 
+now = datetime.now()
+
 path = os.path.dirname(os.path.abspath(__file__))
 arquivobd = os.path.join(path, 'item.db')
 
