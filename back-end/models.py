@@ -38,3 +38,4 @@ if __name__ == "__main__":
     db.session.commit()
     i1.url += i1.nome
     db.session.commit()
+    print(i1)
