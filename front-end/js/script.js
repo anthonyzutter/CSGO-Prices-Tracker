@@ -103,4 +103,63 @@ $(function() {
             alert("erro ao excluir dados, verifique o backend: ");
         }
     });
+
+    function listar (ranking) {
+        $('#corpoTabelaRanking').empty();
+        mostrar_conteudo("cadastroRanking");      
+        for (var i in ranking) { 
+            lin = '<tr id="linha_ranking_'+ranking[i].id+'">' + 
+            '<td>' + ranking[i].nota + '</td>' + 
+            '<td>' + ranking[i].autor + '</td>' + 
+            '<td>' + ranking[i].item.nome + '</td>' + 
+            '<td>' + ranking[i].item.preco + '</td>' + 
+            '<td>' + ranking[i].item.preco_atual + '</td>' + 
+            '<td>' + ranking[i].comida.data + '</td>' + 
+            '<td><a href=# id="excluir_ranking_' + ranking[i].id + '" ' + 
+                'class="excluir_ranking"><img src="img/excluir.png" '+
+                'alt="Excluir ranking" title="Excluir ranking"  width=40px></a>' + 
+            '</td>' + 
+            '</tr>';
+            $('#corpoTabelaRanking').append(lin);
+        }
+    }
+
+    $(document).on("click", "#linkListarRanking", function() {
+        exibir_ranking();
+    });
+
+    function exibir_jogo() {
+        $.ajax({
+            url: 'http://localhost:5000/listar_jogo',
+            method: 'GET',
+            dataType: 'json', 
+            success: listar, 
+            error: function(problema) {
+                alert("erro ao ler dados, verifique o backend: ");
+            }
+        });
+
+        function listar (jogo) {
+            $('#corpoTabelaJogo').empty();
+            mostrar_conteudo("cadastroJogo");      
+            for (var i in jogo) { 
+                lin = '<tr id="linha_jogo_'+jogo[i].id+'">' + 
+                '<td>' + jogo[i].nome + '</td>' + 
+                '<td>' + jogo[i].item.nome + '</td>' + 
+                '<td>' + jogo[i].item.preco + '</td>' + 
+                '<td>' + jogo[i].item.preco_atual + '</td>' + 
+                '<td>' + jogo[i].item.data + '</td>' + 
+                '<td><a href=# id="excluir_jogo_' + jogo[i].id + '" ' + 
+                    'class="excluir_jogo"><img src="img/excluir.png" '+
+                    'alt="Excluir jogo" title="Excluir jogo"  width=40px></a>' + 
+                '</td>' + 
+                '</tr>';
+                $('#corpoTabelaJogo').append(lin);
+            }
+        }
+    }
+
+    $(document).on("click", "#linkListarJogo", function() {
+        exibir_jogo();    
+    });
 });

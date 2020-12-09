@@ -1,5 +1,5 @@
 from config import *
-from models import Item
+from models import Item, Ranking, Jogo
 from servidor import market, game
 
 @app.route("/")
@@ -41,5 +41,61 @@ def excluir_item(item_id):
         db.session.commit()
     except Exception as e:
         resposta = jsonify({"resultado":"erro", "detalhes":str(e)})
+    resposta.headers.add("Access-Control-Allow-Origin", "*")
+    return resposta
+
+@app.route("/listar_ranking")
+def listar_ranking():
+    ranking = db.session.query(Ranking).all()
+    lista_jsons = [ x.json() for x in ranking ]
+    resposta = jsonify(lista_jsons)
+    resposta.headers.add("Access-Control-Allow-Origin", "*")
+    return resposta
+
+@app.route("/listar_jogo")
+def listar_jogo():
+    jogo = db.session.query(Jogo).all()
+    lista_jsons = [ x.json() for x in jogo ]
+    resposta = jsonify(lista_jsons)
+    resposta.headers.add("Access-Control-Allow-Origin", "*")
+    return resposta
+
+@app.route("/listar/<string:classe>")
+def listar(classe):
+    dados = None
+    if classe == "Ranking":
+      dados = db.session.query(Ranking).all()
+    elif classe == "Item":
+      dados = db.session.query(Item).all()
+    elif classe == "Jogo":
+      dados = db.session.query(Jogo).all()
+    lista_jsons = [ x.json() for x in dados ]
+    resposta = jsonify(lista_jsons)
+    resposta.headers.add("Access-Control-Allow-Origin", "*")
+    return resposta
+
+@app.route("/incluir_ranking", methods=['post'])
+def incluir_ranking():
+    resposta = jsonify({"resultado": "ok", "detalhes": "ok"})
+    dados = request.get_json()
+    try: 
+      novo = Ranking(**dados)
+      db.session.add(novo) 
+      db.session.commit() 
+    except Exception as e: 
+      resposta = jsonify({"resultado":"erro", "detalhes":str(e)})
+    resposta.headers.add("Access-Control-Allow-Origin", "*")
+    return resposta
+
+@app.route("/incluir_jogo", methods=['post'])
+def incluir_jogo():
+    resposta = jsonify({"resultado": "ok", "detalhes": "ok"})
+    dados = request.get_json()
+    try: 
+      novo = Jogo(**dados)
+      db.session.add(novo) 
+      db.session.commit() 
+    except Exception as e: 
+      resposta = jsonify({"resultado":"erro", "detalhes":str(e)})
     resposta.headers.add("Access-Control-Allow-Origin", "*")
     return resposta
