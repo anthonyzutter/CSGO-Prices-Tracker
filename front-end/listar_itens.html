@@ -17,15 +17,9 @@
                     <span class="navbar-text">CS:GO Prices Tracker</span>
                     <a class="nav-item nav-link" href="#" id="linkInicio">Início
                         <span class="sr-only">(current)</span></a>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" 
-                        aria-haspopup="true" aria-expanded="false">Cadastro</a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#" id="linkListarItens">Itens</a>
-                        </div>
-                    </li>
-                    <a class="nav-item nav-link" href="#" id="linkListarRanking">Ranking</a>
-                    <a class="nav-item nav-link" href="#" id="linkListarJogo">Jogo</a>
+                    <a class="nav-item nav-link" href="#" id="linkListarItens">Listar</a>
+                    <a class="nav-item nav-link" data-toggle="modal" 
+                        data-target="#modalIncluirItem" href="#">Incluir</a>
                 </div>
             </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -34,7 +28,7 @@
             </button>
         </nav>
         <div id="corpoDaPagina">
-            <div id="conteudoInicial" class="text-center" style="margin-top: auto">
+            <div id="conteudoInicial" class="invisible">
                 Bem vindo ao cadastro de Itens.
             </div>
             <div class="modal fade" id="modalIncluirItem" tabindex="-1" role="dialog"
@@ -63,6 +57,7 @@
                                 </div>
                             </form>
                         </div>
+
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                             <button id="btIncluirItem" type="button" class="btn btn-primary">Incluir</button>
@@ -83,41 +78,6 @@
                 <tbody id="corpoTabelaItens">
                 </tbody>
             </table>
-        </div>
-        <div class="container" id="cadastroRanking">
-            <h5>Ranking</h5>
-            <a class="nav-item nav-link" data-toggle="modal" 
-            data-target="#modalIncluirRanking" href="#">
-            <img src="img/incluir.png" title="Incluir Item" width="40px" height="40px"></a>
-            <table class="table table-striped table-hover fixed" id="tabelaRanking">
-                <thead>
-                    <tr>
-                        <th scope="col">Nota</th>
-                        <th scope="col">Autor</th>
-                        <th scope="col">Nome</th>
-                        <th scope="col">Excluir</th>
-                    </tr>
-                </thead>
-                <tbody id="corpoTabelaRanking">
-                </tbody>
-            </table>
-        </div>
-        <div class="container" id="cadastroJogo">
-            <h5>Jogo</h5>
-            <a class="nav-item nav-link" data-toggle="modal" 
-            data-target="#modalIncluirJogo" href="#">
-            <img src="img/incluir.png" title="Incluir Jogo" width="40px" height="40px"></a>
-            <table class="table table-striped table-hover" id="tabelaJogo">
-                <thead>
-                    <tr>
-                        <th scope="col">Nome</th>
-                        <th scope="col">Excluir</th>
-                    </tr>
-                </thead>
-                <tbody id="corpoTabelaJogo">
-                </tbody>
-            </table>
-        </div>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
