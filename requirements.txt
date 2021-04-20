@@ -1,4 +1,0 @@
-flask==1.1.2
-flask_sqlalchemy==2.4.4
-Flask-Cors==3.0.8
-steam_community_market==1.2.3

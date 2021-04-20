@@ -1,0 +1,46 @@
+{% extends "base.html" %} {% block title %}Prices Tracker{% endblock %}
+{% block content %}
+<h1 align="center">Items of {{ user.username }}</h1>
+<table class="table table-bordered table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Price Paid</th>
+      <th scope="col">Current Price</th>
+      <th scope="col">Date</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in user.items %}
+    <tr>
+      <th scope="row">{{ item.id }}</th>
+      <th scope="row">
+        <a href="{{ item.url + item.name }}" class="link-light" target="_blank">
+          {{ item.name }}
+        </a>
+      </th>
+      <th scope="row">R${{ item.price }}</th>
+      <th scope="row">R${{ item.current_price }}</th>
+      <th scope="row">{{ item.date }}</th>
+      <th scope="row">
+        <button type="button" class="btn btn-dark" onClick="deleteItem({{ item.id }})">
+          X
+        </button>
+      </th>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<form method="POST">
+  <label for="name">Name</label>
+  <input type="text" class="form-control" name="name" id="name" placeholder="Item name" required>
+  <label for="price">Price</label>
+  <input type="number" class="form-control" name="price" id="price" placeholder="Price you paid" step=".01" required>
+  <br>
+  <div align="center">
+    <button type="submit" class="btn btn-dark">Add Item</button>
+  </div>
+</form>
+{% endblock %}
