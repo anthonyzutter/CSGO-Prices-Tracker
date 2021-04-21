@@ -1,10 +1,9 @@
 {% extends "base.html" %} {% block title %}Prices Tracker{% endblock %}
 {% block content %}
-<h1 align="center">Items of {{ user.username }}</h1>
+<h1 align="center">CS:GO Items of {{ user.username }}</h1>
 <table class="table table-bordered table-hover">
   <thead class="thead-dark">
     <tr>
-      <th scope="col">Id</th>
       <th scope="col">Name</th>
       <th scope="col">Price Paid</th>
       <th scope="col">Current Price</th>
@@ -15,7 +14,6 @@
   <tbody>
     {% for item in user.items %}
     <tr>
-      <th scope="row">{{ item.id }}</th>
       <th scope="row">
         <a href="{{ item.url + item.name }}" class="link-light" target="_blank">
           {{ item.name }}
