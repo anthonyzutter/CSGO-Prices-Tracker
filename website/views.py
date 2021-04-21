@@ -2,7 +2,6 @@ from flask import Blueprint, render_template, request, flash, jsonify
 from flask_login import login_required, current_user
 from .models import Item
 from . import db, market
-from steam_community_market import  AppID
 import json
 
 views = Blueprint('views', __name__)
@@ -24,7 +23,7 @@ def home():
     
     items = Item.query.filter_by(id=Item.id).all()
     for item in items:
-        item.current_price = market.get_lowest_price(item.name, AppID.CSGO)
+        item.current_price = market.get_lowest_price(item.name, item.game)
 
     return render_template("home.html", user=current_user)
 

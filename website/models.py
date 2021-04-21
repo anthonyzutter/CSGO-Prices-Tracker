@@ -2,6 +2,7 @@ from . import db
 from . import now
 from flask_login import UserMixin
 from sqlalchemy.sql import func
+from steam_community_market import  AppID
 
 class Note(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -23,4 +24,5 @@ class Item(db.Model):
     current_price = db.Column(db.Float, default=0)
     url = db.Column(db.String(254), default="https://steamcommunity.com/market/listings/730/")
     date = db.Column(db.String(100), default=now.strftime("%d/%m/%Y"))
+    game = db.Column(db.Integer(), default=AppID.CSGO)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
