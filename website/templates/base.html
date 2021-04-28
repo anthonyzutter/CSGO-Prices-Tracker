@@ -25,7 +25,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbar">
           <div class="navbar-nav">
-            <img src="../static/img/logo.png" width="30" class="navbar-brand rounded-circle" alt="Logo">
+            <a class="navbar-brand" href="#">
+              <img src="../static/img/logo.png" width="30" class="navbar-brand rounded-circle" alt="Logo">
+            </a>
             <a class="nav-item nav-link" href="/">CS:GO Prices Tracker</a>
             {% if user.is_authenticated %}
             <a class="nav-item nav-link" id="home" href="/">Items</a>
